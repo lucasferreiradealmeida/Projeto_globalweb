@@ -1,0 +1,71 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    padding: 10px; /* Adiciona padding para evitar que o conteúdo encoste nas bordas */
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    transform: translateY(-30px);
+    color: #2e2e2e;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
+.retangulo {
+    border: 2px solid #e0e0e0;
+    background-color: #e0e0e0;
+    padding: 40px;
+    width: 100%;
+    max-width: 600px; /* Limita a largura máxima do retângulo */
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.logo-cco {
+    width: 100%;
+    max-width: 300px; /* Limita a largura máxima do logo */
+    height: auto;
+    display: block;
+    margin: auto;
+    transform: translateY(-30px);
+}
+
+.gestao {
+    font-size: 1.8em;
+    color: #663883;
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column; /* Alinha os botões em coluna em telas menores */
+    justify-content: center;
+    gap: 20px;
+    transform: translateY(-20px);
+    text-align: center;
+}
+
+.btn {
+    background-color: #663883;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #89c441;
+}
+
+
