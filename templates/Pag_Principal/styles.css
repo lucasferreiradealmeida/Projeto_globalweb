@@ -19,6 +19,12 @@ header {
     height: auto;
     display: block;
     margin: auto;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
 
 .retangulo {
@@ -43,6 +49,12 @@ header {
 .gestao {
     font-size: 1.8em;
     color: #663883;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
 
 .buttons {
@@ -52,6 +64,12 @@ header {
     gap: 20px;
     transform: translateY(-20px);
     text-align: center;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
 }
 
 .btn {
