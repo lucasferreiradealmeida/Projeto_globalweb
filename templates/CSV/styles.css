@@ -1,0 +1,236 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+.back-button{
+    position: absolute;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    margin-top: calc(100vh - 95vh);
+    margin-left: 2rem;
+}
+
+.back-button-icon{
+    width: 70px;
+}
+
+.logo-cco {
+    width: 100%;
+    max-width: 300px; /* Limita a largura máxima do logo */
+    height: auto;
+    display: block;
+    margin: auto;
+    transform: translateY(-30px);
+}
+
+.imagem-cco{
+    display: block;
+    margin: 0 auto;
+    width: 27%; /* Ajuste da largura da imagem */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+h1 {
+    margin: 0;
+    color: #333;
+}
+
+.add-row {
+    position: absolute;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background-color: #89c441;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-row span {
+    font-size: 24px;
+    color: #fff;
+    font-weight: bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center; /* Centraliza o conteúdo horizontalmente */
+    vertical-align: middle; /* Centraliza o conteúdo verticalmente */
+    
+}
+
+th {
+    background-color: #f4f4f4;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.delete-btn {
+    display: inline-block; /* Garante que o botão seja tratado como um bloco em linha */
+    margin: 0 auto; /* Centraliza o botão horizontalmente */
+    padding: 5px 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: transform 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: darkred;
+    transform: scale(1.2);
+}
+
+.editar {
+    width: 30px; /* Aumente ou diminua o valor conforme necessário */
+    height: 30px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.2s; /* Adiciona uma transição suave ao alterar o tamanho */
+}
+
+.editar:hover {
+    transform: scale(1.2); /* Aumenta a imagem quando o mouse passa por cima */
+}
+
+/* pop-up */
+
+.pop-up {
+    display: none; /* Oculto por padrão */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro semi-transparente */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.pop-up .form-container {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    max-width: 90%;
+    position: relative;
+}
+
+/* Estilo para o botão de fechar "X" */
+.fechar-pop-up {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px; /* Tamanho pequeno */
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100; /* Garante que fique na frente de outros elementos */
+}
+
+
+.imagem-cco-pop-up {
+    display: block;
+    margin: 0 auto;
+    width: 76%; /* Ajuste da largura da imagem */
+}
+
+.title {
+    text-align: center;
+    color: #663883; /* Texto claro */
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+.formulario p {
+    margin-bottom: 1rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: #e6e6e6; /* Fundo do input escuro */
+    color: #000000; /* Texto claro no input */
+    border: 1px solid #e6e6e6; /* Borda dos inputs mais escura */
+    margin-top: 0.2rem;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+.filtrar-btn {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background-color: #663883; /* Mantém a cor do botão */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings:
+    "wdth" 100;
+}
+
+.filtrar-btn:hover {
+    background-color: #89c441;
+}
