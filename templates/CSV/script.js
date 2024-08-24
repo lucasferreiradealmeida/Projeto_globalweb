@@ -157,3 +157,104 @@ carregarDados();
 document.querySelector('.fechar-pop-up').addEventListener('click', function() {
     document.getElementById('pop-up').style.display = 'none';
 });
+
+document.querySelector('.export-csv').addEventListener('click', exportarCSV);
+
+function exportarCSV() {
+    const tabela = document.querySelector('table');
+    const linhas = tabela.querySelectorAll('tr');
+    let csv = [];
+    
+    // Pega os cabeçalhos das colunas
+    const headers = [];
+    const primeiraLinha = linhas[0].querySelectorAll('th');
+    primeiraLinha.forEach((header, index) => {
+        // Ignora as duas últimas colunas (Excluir e Editar)
+        if (index < primeiraLinha.length - 2) {
+            headers.push(header.innerText.trim());
+        }
+    });
+    csv.push(headers.join(","));
+    
+    // Pega os dados das linhas
+    for (let i = 1; i < linhas.length; i++) {
+        const cols = linhas[i].querySelectorAll('td');
+        let row = [];
+        
+        cols.forEach((coluna, index) => {
+            // Ignora as duas últimas colunas (Excluir e Editar)
+            if (index < cols.length - 2) {
+                row.push('"' + coluna.innerText.trim() + '"'); // Adiciona aspas para preservar quebras de linha e vírgulas nos dados
+            }
+        });
+        
+        csv.push(row.join(","));
+    }
+
+    // Cria um Blob com o conteúdo CSV
+    const csvContent = csv.join("\n");
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+
+    // Cria um link para download e clica nele automaticamente
+    const link = document.createElement("a");
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dados.csv");
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Função para abrir o pop-up com os dados para edição
+function openEditPopup(row) {
+    const cells = row.querySelectorAll('td');
+    document.querySelector('input[name="categoria"]').value = cells[0].textContent;
+    document.querySelector('input[name="perfil-tr"]').value = cells[1].textContent;
+    document.querySelector('input[name="senioridade"]').value = cells[2].textContent;
+    document.querySelector('input[name="formacao"]').value = cells[3].textContent;
+    document.querySelector('input[name="tempo-experiencia"]').value = cells[4].textContent;
+    document.querySelector('input[name="certificacoes"]').value = cells[5].textContent;
+    document.querySelector('input[name="responsabilidades"]').value = cells[6].textContent;
+
+    // Atualizar o texto do título para "Editar Perfil"
+    document.querySelector('.title').textContent = "Editar Perfil";
+
+    document.getElementById('pop-up').dataset.editingRow = row.rowIndex - 1; // Subtrai 1 porque rowIndex começa em 1
+
+    document.getElementById('pop-up').style.display = 'flex';
+}
+
+// Evento para abrir o pop-up para criar um novo perfil
+document.getElementById('open-pop-up').addEventListener('click', function() {
+    document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+    delete document.getElementById('pop-up').dataset.editingRow;
+
+    // Atualizar o texto do título para "Criar Perfil"
+    document.querySelector('.title').textContent = "Criar Perfil";
+
+    document.getElementById('pop-up').style.display = 'flex';
+});
+
+// Função para filtrar a tabela com base na busca
+function filtrarTabela() {
+    const input = document.getElementById('search-input');
+    const filter = input.value.toLowerCase();
+    const rows = document.querySelectorAll('table tbody tr');
+
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        let match = false;
+
+        cells.forEach(cell => {
+            if (cell.textContent.toLowerCase().includes(filter)) {
+                match = true;
+            }
+        });
+
+        row.style.display = match ? '' : 'none'; // Esconde ou exibe a linha com base no resultado
+    });
+}
+
+// Adiciona o evento de input para filtrar enquanto digita
+document.getElementById('search-input').addEventListener('input', filtrarTabela);

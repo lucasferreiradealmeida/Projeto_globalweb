@@ -76,6 +76,56 @@ h1 {
     font-weight: bold;
 }
 
+.export-csv {
+    position: absolute;
+    right: 50px; /* Ajuste conforme necessário para posicionar ao lado do quadrado verde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #006400; /* Verde escuro */
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+}
+
+.export-csv:hover {
+    background-color: #004d00; /* Um verde ainda mais escuro ao passar o mouse */
+}
+
+
+/* Estilo para a barra de busca */
+.search-container {
+    position: absolute;
+    left: 20px; /* Ajuste conforme necessário para posicionar na esquerda */
+    top: 70px;  /* Ajuste conforme necessário para posicionar abaixo do topo */
+    width: 200px; /* Ajuste conforme necessário */
+    padding: 10px;
+}
+
+#search-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#search-input::placeholder {
+    color: #999;
+}
+
+/* Ajuste para que a barra de busca não sobreponha o conteúdo existente */
+.container {
+    position: relative;
+    padding-top: 40px; /* Adiciona espaço para a barra de busca */
+}
+
+
 table {
     width: 100%;
     border-collapse: collapse;
