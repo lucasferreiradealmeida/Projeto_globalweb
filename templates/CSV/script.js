@@ -192,12 +192,14 @@ function exportarCSV() {
     }
 
     // Cria um Blob com o conteúdo CSV
-    const csvContent = csv.join("\n");
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const url = URL.createObjectURL(blob);
+    // Cria um Blob com o conteúdo CSV
+const csvContent = csv.join("\n");
+const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
 
-    // Cria um link para download e clica nele automaticamente
-    const link = document.createElement("a");
+// Cria um link temporário para download
+const link = document.createElement("a");
+if (link.download !== undefined) {
+    const url = URL.createObjectURL(blob);
     link.setAttribute("href", url);
     link.setAttribute("download", "dados.csv");
     link.style.visibility = 'hidden';
@@ -205,6 +207,8 @@ function exportarCSV() {
     link.click();
     document.body.removeChild(link);
 }
+}
+
 
 // Função para abrir o pop-up com os dados para edição
 function openEditPopup(row) {
@@ -223,6 +227,8 @@ function openEditPopup(row) {
     document.getElementById('pop-up').dataset.editingRow = row.rowIndex - 1; // Subtrai 1 porque rowIndex começa em 1
 
     document.getElementById('pop-up').style.display = 'flex';
+
+    document.querySelector('.filtrar-btn').textContent = "Editar";
 }
 
 // Evento para abrir o pop-up para criar um novo perfil
@@ -258,3 +264,4 @@ function filtrarTabela() {
 
 // Adiciona o evento de input para filtrar enquanto digita
 document.getElementById('search-input').addEventListener('input', filtrarTabela);
+
