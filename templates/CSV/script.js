@@ -240,6 +240,8 @@ document.getElementById('open-pop-up').addEventListener('click', function() {
     document.querySelector('.title').textContent = "Criar Perfil";
 
     document.getElementById('pop-up').style.display = 'flex';
+
+    document.querySelector('.filtrar-btn').textContent = "Criar";
 });
 
 // Função para filtrar a tabela com base na busca
